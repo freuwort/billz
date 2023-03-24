@@ -28,6 +28,7 @@ class InvoiceController extends Controller
         return Inertia::render('Invoice/Index', [
             'profit' => $profit,
             'invoices' => $request->user()->invoices()->orderBy('number', 'desc')
+                ->paginate(1000)
                 ->transform(function ($invoice) {
                     return [
                         'id' => $invoice->id,
