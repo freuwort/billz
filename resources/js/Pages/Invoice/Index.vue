@@ -103,6 +103,7 @@ defineProps({
                                             <div class="flex gap-4 justify-end">
                                                 <Link :href="route('invoices.edit', invoice.id)" class="text-blue-500">Edit</Link>
                                                 <a :href="route('invoices.download', invoice.id)" target="_blank" class="text-blue-500">Download</a>
+                                                <Link :href="route('invoices.duplicate', invoice.id)" method="post" as="button" class="text-blue-500">Duplicate</Link>
                                                 <Link :href="route('invoices.destroy', invoice.id)" method="delete" as="button" class="text-red-500">Delete</Link>
                                             </div>
                                         </td>

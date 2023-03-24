@@ -89,6 +89,24 @@ class InvoiceController extends Controller
 
 
 
+    public function duplicate(Invoice $invoice)
+    {
+        $clone = $invoice->replicate()->fill([
+            'number' => $invoice->number . ' (copy)',
+            'status' => 'draft',
+        ]);
+        
+        $clone->push();
+
+        foreach ($invoice->items as $item) {
+            $clone->items()->create($item->toArray());
+        }
+
+        return redirect()->route('invoices.index')->with('success', 'Invoice duplicated.');
+    }
+
+
+
     public function edit(Invoice $invoice)
     {
         return Inertia::render('Invoice/Edit', [

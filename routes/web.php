@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [InvoiceController::class, 'index'])->name('invoices.index');
             Route::get('/create', [InvoiceController::class, 'create'])->name('invoices.create');
             Route::post('/', [InvoiceController::class, 'store'])->name('invoices.store');
+            Route::post('/{invoice}', [InvoiceController::class, 'duplicate'])->name('invoices.duplicate');
             Route::get('/{invoice}/edit', [InvoiceController::class, 'edit'])->name('invoices.edit');
             Route::patch('/{invoice}', [InvoiceController::class, 'update'])->name('invoices.update');
             Route::delete('/{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy');
