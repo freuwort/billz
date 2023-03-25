@@ -15,6 +15,7 @@ module.exports = {
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
                 mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
+                icon: ['Material Symbols Rounded', ...defaultTheme.fontFamily.mono],
             },
         },
     },
